@@ -1,107 +1,50 @@
-// Create an array of words.
+// Create an array of novels for users to guess.
+var novels = ["witches abroad", "feet of clay", "thief of time", "a hat full of sky", "raising steam", "wyrd sisters", "equal rites", "mort", "lords and ladies", "men at arms", "wee free men", "maskerade", "small gods", "making money", "going postal"];
 
-var novel = ["witches abroad", "feet of clay", "thief of time", "a hat full of sky", "raising steam", "wyrd sisters", "equal rites", "mort", "lords and ladies", "men at arms", "wee free men", "maskerade", "small gods", "making money", "going postal"];
+// Create a variable to choose a random word.
+var word = novels[Math.floor(Math.random() * novels.length)];
 
-var guessLetters = [];
-var guessNovel = [];
+// Create a variable to store the answer array.
+var answerArray = [];
+ for (var i = 0; i < word.length; i++) {
+     answerArray    [i] = "_";
+ }
+
+// Create a variable to store the remaining letters in the word.
+var remainingLetters = word.length;
+
+// Create a variable to show the number of wins.
 var wins = 0;
-var guesses = 10;
-var guessedLetters = 0;
-var pausegame = false;
 
-// Checks if the letter pressed is valid (A-Z).
-isLetter: function (ch) {
-  return /^[A-Z]$/i.test(ch);
-},
+// Display the random word tiles.
 
-// Check to see if the letter is valid within the word (function).
 
-letterCheck: function (letter) {
-  var foundLetter = false
-  
-  for (var i = 0, j = novel.length; i < j; i++) {
-    if (letter === novel[i]) {
-        game.guessingWord[i] = letter
-        foundLetter = true
-        correctSound.play()
-        document.getElementById(event.key).style.color = "#222";
-        // logic for word guesssed to match wordToMatch
-        if (game.guessingWord.join("") === wordToMatch) {
-            // Increment # of wins
-            game.wins++
-            game.pauseGame = true
-            game.updateDisplay()
-            setTimeout(game.resetGame, 5000)
+// User inputs a letter using onkeyup.
+ document.onkeyup = function(event) {
+
+    var userGuess = event.key;
+
+//The computer checks to see if the letter is part of the word
+    // Uses an if/else statement.
+    // Displays the selected letter to user.
+    // Counts down remaining available letters.
+        var letterGuess = () => {
+            if userGuess === answerArray {
+                return (?)
+            }
+            else {
+                return "Try again!";
+            }
+        for (var j = 10; j < word.length; j++) {
+            if (word[j] === userGuess) {
+                answerArray[j] = userGuess;
+                remainingLetters--;
         }
     }
 }
+    
 
-  // Search the word to see if the letter 
-
-
-// Display the word for the user using getElementbyID.
-
-function randomNovelDisplay() {
-  document.getElementById("guessNovel-text").innerHTML = 
-}
-
-
-function myFunction() {
-  document.getElementById("guessNovel-text").innerHTML = guessNovel;
-}
-
-
-
-document.onkeyup = function(event) {
-
-  // Determines which key was pressed.
-  var userGuess = event.key;
-
-  // Randomly chooses a choice from the options array. This is the Computer's guess.
-  var randomNovel = novel[Math.floor(Math.random() * novel.length)];
-
-// Display user input.
-
-// How do I do this?  This is where I use the connection to the HTML.  So I need a place to display it in the HTML.  That means I have to create a space in the HTML.
-
-// Validate user input using an if/else statement.
-
-    if guessNovel {
-
-    }  
-
-    else {
-
-      getElementID
-    }
-
-// If valid, display user input via if/else statement.  
-
-    if userGuess === guessNovel {
-
-    }
-
-    else {
-      display
-    }
-
-// If invalid, display user input via if/else statement.
-
-// Display remaining guesses to user.
-
-// End the game at win or when guesses return to 0.
-
-// Start the game again.
-
-// Note: Keep users from guessing the same letter twice.
-
-document.onkeyup = function(event) {
-
-    // Determines which key was pressed.
-    var userGuess = event.key;
-
-    // Randomly chooses a choice from the options array. This is the Computer's guess.
-    var randomNovel = novel[Math.floor(Math.random() * novel.length)];
-
-    }
-  };
+// Shows the user the letters remaining.
+// Display the remaining number of guesses to user.
+// End the game at win or when the guesses return to 0.
+// Restart the game.

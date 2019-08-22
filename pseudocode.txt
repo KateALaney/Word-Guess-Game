@@ -2,6 +2,32 @@ Define the goal:
     Create a game where users guess a word by pressing letters.
 
 Designing the script:
-    1) The script is triggered when a user presses any key.
-    2) The computer generates a random word from a previously-defined array of words.
-    3) The 
+	X 1) Create an array of words (novels).
+    X 2) Create a variable to choose a random word.
+    X 3) Create a variable to store the answer array.
+    X 4) Create a variable to store the remaining letters in the word.
+    X 5) Create a variable to show the number of wins.
+    X 6) Create a variable called "emptyLetters" with a "_".
+    7) User inputs a letter using onkeyup (?)
+    8) The computer checks to see if the letter is valid (A-Z), and then checks to see if the letter is part of the word.
+        a) Uses an if/else if/else statement.
+        b) if (letter is valid && in the word) {
+               display letter in word
+            }
+            
+            else if (letter is valid && not in the word) {
+                display "try again" message
+            }
+
+            else (letter is invalid) {
+                return message error
+            }
+    9) Display the remaining number of guesses to user.
+    10) End the game at win or when the guesses return to 0.
+    11) Restart the game.
+    
+
+
+    
+
+    
