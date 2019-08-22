@@ -1,0 +1,7 @@
+Define the goal:
+    Create a game where users guess a word by pressing letters.
+
+Designing the script:
+    1) The script is triggered when a user presses any key.
+    2) The computer generates a random word from a previously-defined array of words.
+    3) The 
