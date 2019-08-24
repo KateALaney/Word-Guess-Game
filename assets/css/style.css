@@ -1,7 +1,16 @@
 body {
-    backg
+    background-image: url("../images/pratchett2.jpg");
+    background-size: 50%;
 }
 
 h1 {
     text-align: center;
+    font-family: "Mountains of Christmas", cursive;
+    font-size: 120px;
+}
+
+p {
+    font-family: "Mountains of Christmas", cursive;
+    font-size: 60px;
+    text-align: left;
 }

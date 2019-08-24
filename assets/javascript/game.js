@@ -1,50 +1,84 @@
+window.onload = function(){
+    // your page initialization code here
+    // the DOM will be available here
+ 
 // Create an array of novels for users to guess.
 var novels = ["witches abroad", "feet of clay", "thief of time", "a hat full of sky", "raising steam", "wyrd sisters", "equal rites", "mort", "lords and ladies", "men at arms", "wee free men", "maskerade", "small gods", "making money", "going postal"];
+console.log(novels)
+
+// Create a variable to hold the word currently being guessed.
+var beingGuessed = [];
+
+// Create a variable for the maximum number of tries a player has.
+const tries = 10;
+
+// Create a variable to hold the letters that have been guessed.
+var guessedLetters = [];
+
+// Create a variable to hold the number of tries that a player has left.
+var guessesLeft = 0;
+
+// Create a variable to store the letters that have been accurately guessed.
+var accurateLetters = []
+
+// Create a variable to indicate that the game has started.
+var gameBegun = false;
+
+// Create a variable to indicate that the game has finished.
+var gameEnd = false;
+
+// Create a variable to show the number of wins.
+var wins = 0;
+console.log(wins)
 
 // Create a variable to choose a random word.
 var word = novels[Math.floor(Math.random() * novels.length)];
-
-// Create a variable to store the answer array.
-var answerArray = [];
- for (var i = 0; i < word.length; i++) {
-     answerArray    [i] = "_";
- }
+console.log(word)
 
 // Create a variable to store the remaining letters in the word.
 var remainingLetters = word.length;
 
-// Create a variable to show the number of wins.
-var wins = 0;
+// Creates a function to update the display on the HTML page.
+// function updateDisplay() {
+    var wordText = document.getElementById("currentWord");
+    var guessesText = document.getElementById("guessesRemaining-text");
+    var wins = document.getElementById("wins-text");
+    var guessed = document.getElementById("lettersGuessed");
 
-// Display the random word tiles.
+    for (var i = 0; i < beingGuessed.length; i++) {
+        wordText.innerHtml += beingGuessed[i];
+    }
 
+    guessesText.innerHTML = guessesLeft;
+    guessed.innerHTML = guessedLetters;
 
-// User inputs a letter using onkeyup.
- document.onkeyup = function(event) {
+    if(guessesLeft <= 0) {
+        gameEnd = true;
+    }
+// }
+    // updateDisplay();
 
-    var userGuess = event.key;
+    // Create a variable to store the answer array.
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+        answerArray [i] = "_";     
+        wordText.textContent += answerArray[i];
+    }
 
-//The computer checks to see if the letter is part of the word
-    // Uses an if/else statement.
-    // Displays the selected letter to user.
-    // Counts down remaining available letters.
-        var letterGuess = () => {
-            if userGuess === answerArray {
-                return (?)
+    console.log(answerArray)
+    console.log(word)
+    
+    // Take the input from the user and matches it to the selected word.
+    document.onkeyup = function(event){
+        var userGuess = event.key;
+        for (var a = 0; a < answerArray.length; i++); {
+            if (word [i] == event.key) {
+                answerArray [i] = event.key;
             }
-            else {
-                return "Try again!";
-            }
-        for (var j = 10; j < word.length; j++) {
-            if (word[j] === userGuess) {
-                answerArray[j] = userGuess;
-                remainingLetters--;
         }
     }
-}
+
     
 
-// Shows the user the letters remaining.
-// Display the remaining number of guesses to user.
-// End the game at win or when the guesses return to 0.
-// Restart the game.
+
+};
