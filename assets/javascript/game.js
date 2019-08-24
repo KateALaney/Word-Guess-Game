@@ -9,17 +9,8 @@ console.log(novels)
 // Create a variable to hold the word currently being guessed.
 var beingGuessed = [];
 
-// Create a variable for the maximum number of tries a player has.
-const tries = 10;
-
-// Create a variable to hold the letters that have been guessed.
-var guessedLetters = [];
-
 // Create a variable to hold the number of tries that a player has left.
-var guessesLeft = 0;
-
-// Create a variable to store the letters that have been accurately guessed.
-var accurateLetters = [];
+var totalGuesses = 10;
 
 // Create a variable to indicate that the game has started.
 var gameBegun = false;
@@ -39,25 +30,21 @@ console.log(word);
 var remainingLetters = word.length;
 
 // Creates a function to update the display on the HTML page.
-// function updateDisplay() {
+
     var wordText = document.getElementById("currentWord");
     var guessesText = document.getElementById("guessesRemaining-text");
-    var wins = document.getElementById("wins-text");
-    var guessed = document.getElementById("lettersGuessed");
+    var winstext = document.getElementById("wins-text");
+    var guessesLeft = document.getElementById("lettersGuessed");
 
     for (var i = 0; i < beingGuessed.length; i++) {
         wordText.innerHtml += beingGuessed[i];
     }
 
-    guessesText.innerHTML = guessesLeft;
-    guessed.innerHTML = guessedLetters;
-
+    
     if(guessesLeft <= 0) {
         gameEnd = true;
     }
-// }
-    // updateDisplay();
-
+    
     // Create a variable to store the answer array.
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
@@ -65,20 +52,29 @@ var remainingLetters = word.length;
         wordText.textContent += answerArray[i];
     }
     
-    // Take the input from the user and matches it to the selected word.
+    // Take the input from the user and match it to the selected word.
     document.onkeyup = function(event){
         currentWord.innerHTML = "";
-        var userGuess = event.key;
+        userGuess = event.key;
         for (var i = 0; i < word.length; i++) {
             if (word[i] == event.key) {
                 answerArray[i] = event.key;
             }
-            currentWord.innerHTML += answerArray[i];
+            currentWord.innerHTML += answerArray[i]; //Display the selected word in the HTML.
         }
+        // Indicate whether the player wins.
+        if (currentWord.innerHTML === word) {
+            wins++;
+        }
+        else {
+            guessesLeft.innerHTML += event.key;
+            guessesText.innerHTML = "Guesses Remaining: " + totalGuesses--;
+        }
+        console.log(wins)
+        // Push the "wins" to the HTML.
+        winstext.innerHTML = "Wins: " + wins;
     }
 
-    // Take the input from the user and display it in the HTML.
-    
-
+    //Indicate that the game is over and reset the game.
 
 };
