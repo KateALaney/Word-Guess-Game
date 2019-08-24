@@ -19,7 +19,7 @@ var guessedLetters = [];
 var guessesLeft = 0;
 
 // Create a variable to store the letters that have been accurately guessed.
-var accurateLetters = []
+var accurateLetters = [];
 
 // Create a variable to indicate that the game has started.
 var gameBegun = false;
@@ -29,11 +29,11 @@ var gameEnd = false;
 
 // Create a variable to show the number of wins.
 var wins = 0;
-console.log(wins)
+console.log(wins);
 
 // Create a variable to choose a random word.
 var word = novels[Math.floor(Math.random() * novels.length)];
-console.log(word)
+console.log(word);
 
 // Create a variable to store the remaining letters in the word.
 var remainingLetters = word.length;
@@ -61,23 +61,23 @@ var remainingLetters = word.length;
     // Create a variable to store the answer array.
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
-        answerArray [i] = "_";     
+        answerArray [i] = "_";
         wordText.textContent += answerArray[i];
     }
-
-    console.log(answerArray)
-    console.log(word)
     
     // Take the input from the user and matches it to the selected word.
     document.onkeyup = function(event){
+        currentWord.innerHTML = "";
         var userGuess = event.key;
-        for (var a = 0; a < answerArray.length; i++); {
-            if (word [i] == event.key) {
-                answerArray [i] = event.key;
+        for (var i = 0; i < word.length; i++) {
+            if (word[i] == event.key) {
+                answerArray[i] = event.key;
             }
+            currentWord.innerHTML += answerArray[i];
         }
     }
 
+    // Take the input from the user and display it in the HTML.
     
 
 
