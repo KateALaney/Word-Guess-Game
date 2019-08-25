@@ -40,19 +40,14 @@ var remainingLetters = word.length;
         wordText.innerHtml += beingGuessed[i];
     }
 
-    
-    if(guessesLeft <= 0) {
-        gameEnd = true;
-    }
-    
-    // Create a variable to store the answer array.
+// Create a variable to store the answer array.
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
         answerArray [i] = "_";
         wordText.textContent += answerArray[i];
     }
     
-    // Take the input from the user and match it to the selected word.
+// Take the input from the user and match it to the selected word.
     document.onkeyup = function(event){
         currentWord.innerHTML = "";
         userGuess = event.key;
@@ -75,6 +70,12 @@ var remainingLetters = word.length;
         winstext.innerHTML = "Wins: " + wins;
     }
 
-    //Indicate that the game is over and reset the game.
+//End the game when the player has used available guesses.
+    if (guessesLeft.innerHTML === 0) {
+        
+    }
+   
+//Indicate that the game is over and reset the game.
 
+    
 };

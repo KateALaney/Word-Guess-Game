@@ -8,12 +8,15 @@ No installation is required.
 
 ## Usage
 
-```python
-import foobar
+```
+Instructions:
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+1) Guess a letter.
+2) Guess another letter.
+3) Guess a third letter.
+4) If you haven't picked up the pattern yet. . . .
+5) Once you have guessed the letters, then you will either win or lose the game.
+
 ```
 
 ## Contributing
